@@ -1,0 +1,6 @@
+PROJECT OVERVIEW
+
+Lambda function behind an API gateway that should be able to increment on each visit of a domain.  Multiple users should not impact this.  
+
+The entire environment should be created via CloudFormation.
+
