@@ -4,3 +4,11 @@ Lambda function behind an API gateway that should be able to increment on each v
 
 The entire environment should be created via CloudFormation.
 
+
+DynamoDB: Single table with single key that contains a integer value.
+Lambda:  Lambda will grab from DynamoDB table an entry that hosts a value.  On each request for the value, we return the value and then increment the value before Lambda finishes execution.
+    Role:  Role will need permissions to read and write from DynamoDB.
+    Code:  Get the value from the table -> Return value -> Increment value -> Save value in DynamoDB.
+API Gateway: Gateway will expose a speciifc endpoint that triggers this Lambda function.  This path will be exposed to Route 53 Alias record.
+Route 53: Domain that directs traffic to the API gateway.  
+S3:  May be necessary to store some index.html or basic webpage information in a bucket.  S3 Single Zone most likely.
